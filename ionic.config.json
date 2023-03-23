@@ -1,0 +1,7 @@
+{
+  "name": "MoneyAssist",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
