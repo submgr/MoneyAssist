@@ -74,7 +74,7 @@
 <script lang="ts">
 import {
     //IonIcon,
-    IonModal
+    IonModal, IonContent, IonGrid, IonRow, IonCol, IonLabel
 } from '@ionic/vue';
 import {
     trashBinOutline

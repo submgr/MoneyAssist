@@ -62,7 +62,7 @@
   <script lang="ts">
   import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
   import { IonItem, IonLabel, IonList, IonInput, toastController } from '@ionic/vue';
-  import { IonSegment, IonSegmentButton, IonSelect, IonSelectOption } from '@ionic/vue';
+  import { IonSegment, IonButton, IonSegmentButton, IonSelect, IonSelectOption } from '@ionic/vue';
 
   import { ellipseOutline } from 'ionicons/icons';
 
@@ -70,7 +70,7 @@
 
   export default defineComponent({
     // eslint-disable-next-line
-    components: { IonLabel, IonSegment, IonSegmentButton, IonInput, IonItem, IonPage, IonSelect, IonSelectOption, toastController },
+    components: { IonLabel, IonSegment, IonSegmentButton, IonInput, IonItem, IonButton, IonPage, IonSelect, IonSelectOption, toastController },
     
     setup() {
       return { ellipseOutline }
@@ -136,7 +136,7 @@
             }
 
             if(areThereAnyErrors == true){
-                alert("err")
+                // alert("err")
                 // nothing!..
             } else{
                 const today = new Date();
