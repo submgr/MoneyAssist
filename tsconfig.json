@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
     "useUnknownInCatchVariables": false,
     "noImplicitReturns": false,
     "strictNullChecks":false,
