@@ -43,10 +43,10 @@ const app = createApp(App)
 if(localStorage.getItem("usercode") == ""){
   const tempcode = makeid(25)
   localStorage.setItem("usercode", tempcode)
-  const database_actions = new PouchDB('httpS://pouch.deqstudio.com/database_actions:' + tempcode);
+  const database_actions = new PouchDB('https://pouch.deqstudio.com/database_actions:' + tempcode);
   app.config.globalProperties.$database_actions = database_actions;
 }else{
-  const database_actions = new PouchDB('httpS://pouch.deqstudio.com/database_actions:' + localStorage.getItem("usercode"));
+  const database_actions = new PouchDB('https://pouch.deqstudio.com/database_actions:' + localStorage.getItem("usercode"));
   app.config.globalProperties.$database_actions = database_actions;
 }
 
