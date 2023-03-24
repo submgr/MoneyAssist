@@ -1,7 +1,7 @@
 <template>
 <div id="container">
-    <ion-item button v-for="row in accounted_list" :key="row.doc.id">
-        <ion-grid class="ionlist_custom" @click="getDetailsAboutAction(row.id)">
+    <ion-item button v-for="row in accounted_list" :key="row.doc.id" @click="getDetailsAboutAction(row.id)">
+        <ion-grid class="ionlist_custom">
             <ion-row class="ionlist_custom">
                 <ion-col size="8">
                     <ion-label><b>{{ row.doc.category }}</b></ion-label>
