@@ -43,7 +43,9 @@ import {
     IonTitle,
     IonContent
 } from '@ionic/vue';
+
 import ExploreContainer from '@/components/ExploreContainer.vue';
+import { logoGoogle } from 'ionicons/icons';
 
 import {
     defineComponent
@@ -66,7 +68,7 @@ export default defineComponent({
     },
 
     setup() {
-        return {}
+        return { logoGoogle }
     },
     mounted() {
         GoogleAuth.initialize({
@@ -96,7 +98,7 @@ export default defineComponent({
             }).then((response) => {
                 if (response.data.status == "okay") {
                     localStorage.setItem("usercode", response.data.userid)
-                    parent_this.database_actions = new PouchDB('http://pouch.deqstudio.com/database_actions:' + response.data.userid)
+                    parent_this.database_actions = new PouchDB('https://pouch.deqstudio.com/database_actions:' + response.data.userid)
                     this.syncActive = "yes"
                     this.syncDetails = response.data.userid
                     localStorage.setItem("activeAccount", "yes")
