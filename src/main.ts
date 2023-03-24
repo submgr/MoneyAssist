@@ -29,9 +29,29 @@ const app = createApp(App)
   .use(IonicVue)
   .use(router);
 
-const database_actions = new PouchDB('database_actions');
+  function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
+if(localStorage.getItem("usercode") == ""){
+  const tempcode = makeid(25)
+  localStorage.setItem("usercode", tempcode)
+  const database_actions = new PouchDB('http://pouch.deqstudio.com/database_actions:' + tempcode);
+  app.config.globalProperties.$database_actions = database_actions;
+}else{
+  const database_actions = new PouchDB('http://pouch.deqstudio.com/database_actions:' + localStorage.getItem("usercode"));
+  app.config.globalProperties.$database_actions = database_actions;
+}
 
-app.config.globalProperties.$database_actions = database_actions;
+
+
   
 router.isReady().then(() => {
   app.mount('#app');

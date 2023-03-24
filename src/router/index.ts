@@ -20,6 +20,14 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Tab1Page.vue')
       },
       {
+        path: 'analytics',
+        component: () => import('@/views/VisualAnalytics.vue')
+      },
+      {
+        path: 'sync',
+        component: () => import('@/views/SyncProvider.vue')
+      },
+      {
         path: 'tab2',
         component: () => import('@/views/Tab2Page.vue')
       },
