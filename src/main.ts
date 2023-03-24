@@ -29,10 +29,11 @@ const app = createApp(App)
   .use(IonicVue)
   .use(router);
 
-
-const database_actions = new PouchDB('database_actions');
+var database_actions: any = PouchDB;
+database_actions = new PouchDB('database_actions');
 
 app.config.globalProperties.$database_actions = database_actions;
+(global as any).myvar = myvar;
   
 router.isReady().then(() => {
   app.mount('#app');
