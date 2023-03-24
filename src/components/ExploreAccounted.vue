@@ -87,7 +87,7 @@ import {
 export default defineComponent({
     components: {
         //IonIcon,
-        IonModal
+        IonModal, IonContent, IonGrid, IonRow, IonCol, IonLabel
     },
     watch: {
       '$route' () {
