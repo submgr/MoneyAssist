@@ -69,6 +69,7 @@
   import { defineComponent } from 'vue';
 
   export default defineComponent({
+    // eslint-disable-next-line
     components: { IonLabel, IonSegment, IonSegmentButton, IonInput, IonItem, IonPage, IonSelect, IonSelectOption, toastController },
     
     setup() {

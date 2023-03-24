@@ -73,7 +73,8 @@
   
 <script lang="ts">
 import {
-    IonIcon, IonModal
+    //IonIcon,
+    IonModal
 } from '@ionic/vue';
 import {
     trashBinOutline
@@ -85,7 +86,8 @@ import {
 
 export default defineComponent({
     components: {
-        IonIcon, IonModal
+        //IonIcon,
+        IonModal
     },
     watch: {
       '$route' () {
