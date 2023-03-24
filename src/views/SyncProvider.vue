@@ -75,6 +75,11 @@ export default defineComponent({
             grantOfflineAccess: true,
         });
 
+        if(localStorage.getItem("activeAccount") == "yes"){
+            this.syncActive = "yes"
+            this.syncDetails = localStorage.getItem("usercode")
+        }
+
     },
     methods: {
         async authenticateWithGoogle() {
@@ -92,6 +97,9 @@ export default defineComponent({
                 if (response.data.status == "okay") {
                     localStorage.setItem("usercode", response.data.userid)
                     parent_this.database_actions = new PouchDB('http://pouch.deqstudio.com/database_actions:' + response.data.userid)
+                    this.syncActive = "yes"
+                    this.syncDetails = response.data.userid
+                    localStorage.setItem("activeAccount", "yes")
                     this.$router.push({
                         path: '/tabs/home',
                         replace: true,
