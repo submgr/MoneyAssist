@@ -23,9 +23,16 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+import PouchDB from 'pouchdb';
+
 const app = createApp(App)
   .use(IonicVue)
   .use(router);
+
+
+const database_actions = new PouchDB('database_actions');
+
+app.config.globalProperties.$database_actions = database_actions;
   
 router.isReady().then(() => {
   app.mount('#app');
