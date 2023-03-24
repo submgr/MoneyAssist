@@ -12,13 +12,24 @@
             </ion-toolbar>
         </ion-header>
 
-        <div style="margin-left: 5vw; margin-top: 20vh;">
-            <ion-label>Войдите в учетную запись Google, чтобы сохранить свой прогресс в облаке.</ion-label>
+        <div v-if="syncActive == 'no'">
+            <div style="margin-left: 5vw; margin-top: 20vh;">
+                <ion-label>Войдите в учетную запись Google, чтобы сохранить свой прогресс в облаке.</ion-label>
+            </div>
+            <ion-button @click="authenticateWithGoogle" style="margin-right: 5%; margin-left: 5%; margin-top: 6%; --opacity: 0.7;" expand="block">
+                <ion-icon class="send-button" slot="end" :icon="logoGoogle"></ion-icon>
+                Войти с Google
+            </ion-button>
         </div>
-        <ion-button @click="authenticateWithGoogle" style="margin-right: 5%; margin-left: 5%; margin-top: 6%; --opacity: 0.7;" expand="block">
-            <ion-icon class="send-button" slot="end" :icon="logoGoogle"></ion-icon>
-            Войти с Google
-        </ion-button>
+        <div v-if="syncActive == 'yes'">
+            <div style="margin-left: 5vw; margin-top: 20vh;">
+                <ion-label>Ваш прогресс сохраняется в учетной записи и доступен по сети.<br/>Сессия: {{syncDetails}}<br/><br/>Вы можете войти в любой момент в другую учетную запись ниже.</ion-label>
+            </div>
+            <ion-button @click="authenticateWithGoogle" style="margin-right: 5%; margin-left: 5%; margin-top: 6%; --opacity: 0.7;" expand="block">
+                <ion-icon class="send-button" slot="end" :icon="logoGoogle"></ion-icon>
+                Войти с Google
+            </ion-button>
+        </div>
     </ion-content>
 </ion-page>
 </template>
@@ -104,7 +115,8 @@ export default defineComponent({
     },
     data() {
         return {
-
+            syncActive: "no",
+            syncDetails: ""
         }
     },
 })
